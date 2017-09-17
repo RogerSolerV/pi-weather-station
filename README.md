@@ -1,2 +1,2 @@
 # pi-weather-station
-Small weather station with Raspberry Pi
+Small weather station with Raspberry Pi back-end application.

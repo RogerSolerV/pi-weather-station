@@ -1,0 +1,40 @@
+template: Hello %s!
+defaultName: Stranger
+
+server:
+  applicationConnectors:
+  - type: http
+    port: 9999
+  adminConnectors:
+  - type: http
+    port: 9998
+  #requestLog:
+    #appenders:
+      #- type: file
+        #threshold: ALL
+        #currentLogFilename: log/access-piwes.log
+        #archivedLogFilenamePattern: log/access-piwes-%d.log.gz
+        #archivedFileCount: 7
+
+logging:
+  level: INFO
+    
+  loggers:
+    com.smoketurner.dropwizard.zipkin: DEBUG
+    com.rogersolerv.piweatherstation: DEBUG
+    com.github.kristofa.brave: DEBUG
+    
+swagger:
+  title: Pi Weather Station
+  resourcePackage: com.rogersolerv.piweatherstation.resources
+
+zipkin:
+  enabled: false
+  collector: http
+  baseUrl: http://127.0.0.1:9411/
+  serviceHost: 127.0.0.1
+  servicePort: 9411
+
+zipkinClient:
+  serviceName: pi-weather-station
+  timeout: 2s
